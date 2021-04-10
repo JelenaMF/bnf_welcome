@@ -9,17 +9,10 @@ const routes = require('./routes');
 const errorHandlers = require('./errorHandlers');
 //passing in routes
 app.use(routes);
-/*
-* Helpers for Various Tasks
-*/
 
-// Helper function to reverse a string
-const reverseString = (string) => [...string].reverse().join('');
-
-// Helper function to shorten a string to fifty characters
-const shortenString = (string) => {
-  return string.length > 50 ? string.substring(0, 50) + "..." : string;
-}
+//passing errorhandlers
+app.use(errorHandlers.fourOhfourError);
+app.use(errorHandlers.globalError);
 
 // Turn on Express server
 app.listen(3000, () => {

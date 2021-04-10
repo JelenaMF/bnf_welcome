@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const helpers = require('./helpers')
 
 /*
 * Route Handlers
@@ -12,8 +13,8 @@ router.get('/', (req, res) => {
   
     // Create greeting and use helper functions to reverse and shorten a string
     const greeting = 'Hello World!'
-    const reversedGreeting = reverseString(greeting);
-    const shortenedDesc = shortenString('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel sapien diam. Vestibulum sed turpis id eros varius cursus.');
+    const reversedGreeting = helpers.reverseString(greeting);
+    const shortenedDesc = helpers.shortenString('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel sapien diam. Vestibulum sed turpis id eros varius cursus.');
   
     // Send greeting to the page
     res.send(`
